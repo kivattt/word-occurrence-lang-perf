@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
@@ -14,27 +14,18 @@ func usage() {
 
 // Hardcoded to match "hi"
 func wordOccurrence(filename string) int {
-	file, err := os.Open(filename)
+	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanRunes)
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
 	ret := 0
-	for scanner.Scan() {
-		if scanner.Text()[0] == 'h' {
+	for _, b := range buf {
+		if b == 'h' {
 			continue
 		}
 
-		if scanner.Text()[0] == 'i' {
+		if b == 'i' {
 			ret++
 		}
 	}
