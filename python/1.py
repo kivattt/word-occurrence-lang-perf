@@ -1,7 +1,7 @@
 import sys
 
 def usage():
-	print("Usage: python3 main.py <word> <filename>")
+	print("Usage: python3 1.py <word> <filename>")
 
 def wordOccurrence(word, filename):
 	f = open(filename, "r")

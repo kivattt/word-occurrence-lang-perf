@@ -52,6 +52,10 @@ printf "\e[1;32mC++ - Stream implementation\e[0m\n"
 time ./c++/3 hi file.txt
 echo
 
+printf "\e[1;32mPython - Hardcoded to match \"hi\"\e[0m\n"
+time python3 ./python/2.py file.txt
+echo
+
 printf "\e[1;32mPython\e[0m\n"
-time python3 ./python/main.py hi file.txt
+time python3 ./python/1.py hi file.txt
 echo
