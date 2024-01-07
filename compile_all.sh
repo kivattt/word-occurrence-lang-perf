@@ -21,3 +21,8 @@ popd
 pushd rust
 cargo build --release # opt-level 3
 popd
+
+# :skull:
+pushd java
+~/.jdks/openjdk-21.0.1/bin/javac Main.java
+popd

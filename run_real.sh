@@ -1,4 +1,5 @@
 # Only proper implementations, no hacky hardcoding
+TIMEFORMAT=%R
 
 printf "\e[1;34mImplementations sorted by fastest first\e[0m\n\n"
 

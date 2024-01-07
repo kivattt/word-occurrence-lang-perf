@@ -1,3 +1,5 @@
+TIMEFORMAT=%R
+
 printf "\e[1;34mImplementations sorted by fastest first\e[0m\n\n"
 
 printf "\e[1;32mC++ - Sketchiest hardcoded to match \"hi\"\e[0m\n"
@@ -26,6 +28,12 @@ echo
 
 printf "\e[1;32mC - Old implementation\e[0m\n"
 time ./c/1 hi file.txt
+echo
+
+printf "\e[1;32mJava - Hardcoded to match \"hi\"\e[0m\n"
+pushd java > /dev/null
+time ~/.jdks/openjdk-21.0.1/bin/java Main hi ../file.txt
+popd > /dev/null
 echo
 
 printf "\e[1;32mC++\e[0m\n"
