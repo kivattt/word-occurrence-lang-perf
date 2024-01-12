@@ -15,6 +15,7 @@ popd
 pushd go
 go build 1.go
 go build 2.go
+go build 3.go
 popd
 
 pushd rust

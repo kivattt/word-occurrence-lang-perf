@@ -34,13 +34,8 @@ int wordOccurrence(const string &filename){
 	}
 
 	int ret = 0;
-
-	for (int i = 0; i < fileSize; i++){
-		if (buffer[i] == 'h')
-			continue;
-
+	for (int i = 0; i < fileSize; i++)
 		ret += buffer[i] == 'i';
-	}
 
 	fclose(file);
 	free(buffer);
