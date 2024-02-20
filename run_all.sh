@@ -6,6 +6,10 @@ printf "\e[1;32mC++ - Sketchiest hardcoded to match \"i\"\e[0m\n"
 time ./c++/5 file.txt
 echo
 
+printf "\e[1;32mGo - MMAP Hardcoded to match \"i\"\e[0m\n"
+time ./go/4 file.txt
+echo
+
 printf "\e[1;32mGo - Hardcoded to match \"i\"\e[0m\n"
 time ./go/3 file.txt
 echo
