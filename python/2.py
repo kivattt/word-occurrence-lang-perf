@@ -9,8 +9,8 @@ def wordOccurrence(filename):
 	ret = 0
 	for line in f:
 		for char in line:
-			if char == 'h':
-				continue
+#            if char == 'h':
+#				continue
 
 			if char == 'i':
 				ret += 1

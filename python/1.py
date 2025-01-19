@@ -1,21 +1,13 @@
 import sys
 
-def usage():
-	print("Usage: python3 1.py <word> <filename>")
+def iOccurrence(filename):
+    f = open(filename, "r")
 
-def wordOccurrence(word, filename):
-	f = open(filename, "r")
+    ret = 0
+    while (byte := f.read(1)):
+        if byte == 'i':
+            ret += 1
 
-	ret = 0
-	for line in f:
-		for split in line.split():
-			if split == word:
-				ret += 1
+    return ret
 
-	return ret
-
-if len(sys.argv) < 3:
-	usage()
-	sys.exit(1)
-
-print("\033[36m" + str(wordOccurrence(sys.argv[1], sys.argv[2])) + "\033[0m")
+print("\033[36m" + str(iOccurrence(sys.argv[1])) + "\033[0m")
