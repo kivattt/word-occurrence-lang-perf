@@ -6,7 +6,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/mman.h>
-#include <x86intrin.h>
 #include <immintrin.h>
 
 using std::string;
@@ -30,13 +29,11 @@ int wordOccurrence(const string &filename){
 	char *data = (char*)mmap(NULL, statbuf.st_size, PROT_READ, MAP_SHARED, fileno(file), 0);
 	int ret = 0;
 
-	/* 256-bit AVX2 */
-	const __m256i valueMask = _mm256_set1_epi8('i');
-	for (int i = 0; i < statbuf.st_size; i += 32) {
-		__m256i chunk = _mm256_lddqu_si256(reinterpret_cast<__m256i*>(&data[i]));
-
-		unsigned int matchedMask = _mm256_movemask_epi8(_mm256_cmpeq_epi8(chunk, valueMask));
-		ret += _mm_popcnt_u32(matchedMask);
+	for (int i = 0; i < statbuf.st_size; i += 8) {
+		unsigned long long chunk = *reinterpret_cast<unsigned long long*>(&data[i]);
+		for (int j = 0; j < 8; j++) {
+			ret += ((chunk >> (i*8)) & 0xff) == 'i';
+		}
 	}
 
 	munmap(data, statbuf.st_size);

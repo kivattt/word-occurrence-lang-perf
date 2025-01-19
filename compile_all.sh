@@ -11,6 +11,8 @@ g++ -O3 3.cpp -o 3
 g++ -O3 4.cpp -o 4
 g++ -O3 5.cpp -o 5
 g++ -std=c++23 -lpthread -march=native -O3 6.cpp -o 6
+g++ -std=c++23 -lpthread -march=native -O3 7.cpp -o 7
+g++ -std=c++23 -lpthread -march=native -O3 8.cpp -o 8
 popd
 
 pushd go

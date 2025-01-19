@@ -2,8 +2,16 @@ TIMEFORMAT=%R
 
 printf "\e[1;34mImplementations roughly sorted by fastest first\e[0m\n\n"
 
+printf "\e[1;32mC++ - memory-mapped file + AVX512\e[0m\n"
+time ./c++/7 file.txt
+echo
+
 printf "\e[1;32mC++ - memory-mapped file + AVX2\e[0m\n"
 time ./c++/6 file.txt
+echo
+
+printf "\e[1;32mC++ - memory-mapped file, 64-bits at a time\e[0m\n"
+time ./c++/8 file.txt
 echo
 
 printf "\e[1;32mC++\e[0m\n"
